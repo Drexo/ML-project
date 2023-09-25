@@ -1,8 +1,11 @@
 import pickle
 import re
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent
 # Load the trained model
-model_path = f"ml-project-ue-katowice.pkl"
+model_filename = f"ml-project-ue-katowice.pkl"
+model_path = BASE_DIR / model_filename
 
 with open(model_path, "rb") as f:
     model = pickle.load(f)
