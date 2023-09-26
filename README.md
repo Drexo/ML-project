@@ -1,4 +1,5 @@
-# ML Model for predicting 17 languages based on text
+# ML Model for predicting 8 languages based on text
+English, French, German, Greek, Italian, Portugeese, Russian, Spanish.
 
 ## Using this dataset https://www.kaggle.com/datasets/basilb2s/language-detection
 

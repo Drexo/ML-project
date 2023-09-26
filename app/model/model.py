@@ -13,23 +13,14 @@ with open(model_path, "rb") as f:
 
 # Define the classes
 classes = [
-    "Arabic",
-    "Danish",
-    "Dutch",
     "English",
     "French",
     "German",
     "Greek",
-    "Hindi",
     "Italian",
-    "Kannada",
-    "Malayalam",
     "Portugeese",
     "Russian",
     "Spanish",
-    "Sweedish",
-    "Tamil",
-    "Turkish",
 ]
 
 def predict_pipeline(text):
