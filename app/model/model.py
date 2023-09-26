@@ -2,14 +2,16 @@ import pickle
 import re
 from pathlib import Path
 
-#__version__ = "0.1.0"
+BASE_DIR = Path(__file__).resolve().parent
 
-BASE_DIR = Path(__file__).resolve(strict=True).parent
+# Load the trained model
+model_filename = f"ml-project-ue-katowice.pkl"
+model_path = BASE_DIR / model_filename
 
-with open(f"{BASE_DIR}/ml-project-ue-katowice.pkl", "rb") as f:
+with open(model_path, "rb") as f:
     model = pickle.load(f)
 
-
+# Define the classes
 classes = [
     "Arabic",
     "Danish",
@@ -30,10 +32,12 @@ classes = [
     "Turkish",
 ]
 
-
-def predict_pipeline(text):
+def predict(text):
+    # Preprocess the text
     text = re.sub(r'[!@#$(),\n"%^*?\:;~`0-9]', " ", text)
-    text = re.sub(r"[[]]", " ", text)
+    text = re.sub(r"\[.*?\]", " ", text)
     text = text.lower()
+
+    # Predict the class for the input text
     pred = model.predict([text])
     return classes[pred[0]]
