@@ -1,23 +1,23 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from app.model.model import predict
+from app.model.model import predict_pipeline
 
 app = FastAPI()
-
-class PredictionOut(BaseModel):
-    language: str
-    language2: str
-    language3: str
 
 class TextIn(BaseModel):
     text: str
     text2: str
     text3: str
 
+class PredictionOut(BaseModel):
+    language: str
+    language2: str
+    language3: str
+
 @app.get("/")
 def home():
     """
-    Endpoint to perform a health check and provide the model version.
+    Endpoint to perform a health check.
     """
     return {"API": "OK"}
 
@@ -26,7 +26,7 @@ def predict(payload: TextIn):
     """
     Endpoint to predict the language based on the input text.
     """
-    language = predict(payload.text)
-    language2 = predict(payload.text2)
-    language3 = predict(payload.text3)
+    language = predict_pipeline(payload.text)
+    language2 = predict_pipeline(payload.text2)
+    language3 = predict_pipeline(payload.text3)
     return PredictionOut(language=language, language2=language2, language3=language3)

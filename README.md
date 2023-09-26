@@ -1,6 +1,11 @@
 # ML Model for predicting 17 languages based on text
+
 ## Using this dataset https://www.kaggle.com/datasets/basilb2s/language-detection
 
+## Live
+### https://ml-project-ue-katowice-eb2861c3f21f.herokuapp.com/docs
+
+## Local
 ### 1. Create Docker container
 
 ```bash

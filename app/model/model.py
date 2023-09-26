@@ -32,7 +32,7 @@ classes = [
     "Turkish",
 ]
 
-def predict(text):
+def predict_pipeline(text):
     # Preprocess the text
     text = re.sub(r'[!@#$(),\n"%^*?\:;~`0-9]', " ", text)
     text = re.sub(r"\[.*?\]", " ", text)
